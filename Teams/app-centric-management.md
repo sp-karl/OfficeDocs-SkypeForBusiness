@@ -232,6 +232,9 @@ When your tenant's admin center receives this feature, the following updates are
     * During the migration, [create one security group](/microsoft-365/admin/email/create-edit-or-delete-a-security-group?view=o365-worldwide&preserve-view=true) per custom app permission policy. All users assigned to the app permission policy are assigned to the corresponding groups. 
     * After the migration, you can view and manage the groups.
     * There is no change of app permissions during the migration, except where an app is allowed in the global policy but blocked in the custom app permission policy. Here, the app is allowed for all users in the group. This is the only instance where there is a change in app permissions in the tenant.
+  * You should to consider using PowerShell:
+          Set-UnifiedGroup -Identity <xxxxxxxxxx> -UnifiedGroupWelcomeMessageEnabled:$false
+        to disable sending system-generated welcome messages to users who are added as members to the M365 Group if you will be adding many users as this can generate a lot of email traffic if you do not take this action. 
 
 ## Related articles
 
